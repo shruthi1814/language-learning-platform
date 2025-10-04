@@ -1,0 +1,10 @@
+project_id = "uxztuuqveiezlosppodx"
+
+[functions.analyze-pronunciation]
+verify_jwt = true
+
+[functions.check-grammar]
+verify_jwt = true
+
+[functions.lookup-word]
+verify_jwt = true
