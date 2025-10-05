@@ -33,7 +33,7 @@ serve(async (req) => {
         messages: [
           {
             role: 'system',
-            content: 'You are a grammar expert. Analyze the text for grammar mistakes and provide detailed corrections. Return as JSON with an array of errors, where each error has: message (the issue), context (the problematic text), suggestions (array of corrections), and explanation (why it\'s wrong). If no errors, return empty errors array.'
+            content: 'You are a grammar expert. Analyze the text for grammar mistakes and provide detailed corrections. Return as JSON with an array of errors, where each error has: wrongSentence (the original incorrect text), correctSentence (the corrected version), message (brief description of the issue), and explanation (why it\'s wrong and how it\'s fixed). If no errors, return empty errors array.'
           },
           {
             role: 'user',

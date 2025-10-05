@@ -91,32 +91,23 @@ const GrammarChecker = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {results.errors.map((error: any, index: number) => (
-                    <div key={index} className="space-y-2 border-b pb-4 last:border-0 last:pb-0">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1 space-y-1">
-                          <p className="font-medium text-destructive">{error.message}</p>
-                          {error.context && (
-                            <p className="text-sm text-muted-foreground">
-                              Context: "{error.context}"
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                      {error.suggestions && error.suggestions.length > 0 && (
-                        <div className="space-y-1">
-                          <p className="text-sm font-medium">Suggestions:</p>
-                          <div className="flex flex-wrap gap-2">
-                            {error.suggestions.map((suggestion: string, i: number) => (
-                              <span
-                                key={i}
-                                className="rounded-full bg-secondary/20 px-3 py-1 text-sm text-secondary-foreground"
-                              >
-                                {suggestion}
-                              </span>
-                            ))}
-                          </div>
+                    <div key={index} className="space-y-3 border-b pb-4 last:border-0 last:pb-0">
+                      <p className="font-semibold text-destructive">{error.message}</p>
+                      
+                      {error.wrongSentence && (
+                        <div className="space-y-1 rounded-lg bg-destructive/5 p-3">
+                          <p className="text-xs font-medium text-muted-foreground">Wrong:</p>
+                          <p className="text-sm line-through">{error.wrongSentence}</p>
                         </div>
                       )}
+                      
+                      {error.correctSentence && (
+                        <div className="space-y-1 rounded-lg bg-secondary/10 p-3">
+                          <p className="text-xs font-medium text-muted-foreground">Correct:</p>
+                          <p className="text-sm font-medium text-secondary">{error.correctSentence}</p>
+                        </div>
+                      )}
+                      
                       {error.explanation && (
                         <p className="text-sm text-muted-foreground">{error.explanation}</p>
                       )}
